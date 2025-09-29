@@ -1,4 +1,4 @@
-import IPCClient from "./IPCClient";
-import IPCServer from "./IPCServer";
+import IPCClient from "./IPCClient.js";
+import IPCServer from "./IPCServer.js";
 
 export { IPCClient, IPCServer };

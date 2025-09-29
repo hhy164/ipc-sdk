@@ -12,7 +12,7 @@
   <script type="module">
     // 注册ICPServer
     import { IPCServer } from '../dist/index.js';
-    const ipcServer = new IPCServer();
+    const ipcServer = new IPCServer(window);
     ipcServer.handle('getInitData', (params) => {
       console.log(params, 'params')
     })

@@ -1,3 +1,4 @@
+import { IIPCType } from "./interface/index.js";
 // 用于iframe页面处注册
 class IPCClient {
     constructor(win) {
@@ -14,12 +15,13 @@ class IPCClient {
      */
     invoke(channel, ...args) {
         const requestId = this.uuid();
-        this.win.postMessage({
-            type: 'ipc_invoke',
+        const params = {
+            type: IIPCType.IPC_INVOKE,
             channel,
             args,
             requestId,
-        });
+        };
+        this.win.postMessage(params);
     }
 }
 export default IPCClient;
