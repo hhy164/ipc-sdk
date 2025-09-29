@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // 用于iframe页面处注册
 class IPCClient {
     constructor(win) {
@@ -24,4 +22,4 @@ class IPCClient {
         });
     }
 }
-exports.default = IPCClient;
+export default IPCClient;

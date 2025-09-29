@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class IPCServer {
     constructor() {
         // 存储注册的方法
@@ -14,4 +12,4 @@ class IPCServer {
         this.handlers[channel] = handler;
     }
 }
-exports.default = IPCServer;
+export default IPCServer;

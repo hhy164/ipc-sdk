@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist", // 输出目录
     "target": "es2016",     
-    "module": "commonjs",         
+    "module": "es2020",         
     "esModuleInterop": true,     
     "forceConsistentCasingInFileNames": true,  
     "strict": true,                            
