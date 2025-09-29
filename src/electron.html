@@ -8,10 +8,20 @@
 </head>
 
 <body>
+  <div>这是一个electron项目</div>
   <iframe src="h5.html" frameborder="0" id="myIframe"></iframe>
-  <script>
-    const iframe = document.getElementById('myIframe');
-
+  <script type="module">
+    import { IPCClient } from '../dist/index.js';
+    const iframeEle = document.getElementById('myIframe');
+    console.log(iframeEle, 'iframeEle')
+    const ipcClient = new IPCClient(iframeEle.contentWindow);
+    iframeEle.onload = () => {
+      console.log('加载完成')
+    }
+    ipcClient.invoke('getInitData', {
+      name: 'electron',
+      version: '1.0.0'
+    })
   </script>
 </body>
 

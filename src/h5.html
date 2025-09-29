@@ -9,10 +9,13 @@
 
 <body>
   <div>这是一个h5项目</div>
-  <script>
+  <script type="module">
     // 注册ICPServer
+    import { IPCServer } from '../dist/index.js';
     const ipcServer = new IPCServer();
-
+    ipcServer.handle('getInitData', (params) => {
+      console.log(params, 'params')
+    })
   </script>
 </body>
 
