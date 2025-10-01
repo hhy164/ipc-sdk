@@ -5,8 +5,10 @@ class IPCClient {
         this.win = win;
         // 存储事件监听器
         this.eventHandlers = {};
-        this.win.addEventListener('message', (event) => {
-            this.handleMessage(event.data);
+        window.addEventListener('message', (event) => {
+            if (event.source === this.win) {
+                this.handleMessage(event.data);
+            }
         });
     }
     uuid() {
@@ -26,7 +28,7 @@ class IPCClient {
             args,
             requestId,
         };
-        this.win.postMessage(params);
+        this.win.postMessage(params, '*');
     }
     /**
      * 监听h5抛出的事件

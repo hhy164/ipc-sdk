@@ -16,10 +16,7 @@
     ipcServer.handle('getInitData', (params) => {
       console.log(params, 'params')
     })
-    ipcServer.emit('getReady', {
-      name: 'h5',
-      version: '1.0.0'
-    })
+    ipcServer.emit('getReady')
   </script>
 </body>
 

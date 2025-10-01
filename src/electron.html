@@ -14,8 +14,12 @@
     import { IPCClient } from '../dist/index.js';
     const iframeEle = document.getElementById('myIframe');
     const ipcClient = new IPCClient(iframeEle.contentWindow);
-    ipcClient.on('getReady', (data) => {
-      console.log(data)
+    ipcClient.on('getReady', () => {
+      console.log('getReady')
+      ipcClient.invoke('getInitData', {
+        name: 'electron',
+        version: '1.0.0'
+      })
     })
   </script>
 </body>
