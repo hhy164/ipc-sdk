@@ -1,7 +1,7 @@
 {
   "name": "ipc-sdk",
   "version": "1.0.0",
-  "description": "IPC 通信 SDK, 用于 Electron 进程和 H5 页面之间的通信",
+  "description": "```js import IPCH5 from './dist/IPCH5.js'; const ipc = new IPCH5(); // 注册方法供iframe调用 ipc.handle('init',(params)=>{   return {     a:xxx,     b:xxx   } })",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

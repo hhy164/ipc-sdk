@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>h5</title>
+</head>
+
+<body>
+  <div>h5</div>
+  <script type="module">
+    import { IPCH5 } from "../dist/IPCH5.js"
+    const ipc = new IPCH5();
+    ipc.handle('init', () => {
+      return getUserInfo()
+    })
+
+    const getUserInfo = () => {
+      return new Promise((resolve, reject) => {
+        resolve({
+          name: '张三'
+        })
+      })
+    }
+  </script>
+</body>
+
+</html>

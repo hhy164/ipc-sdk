@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>electron</title>
+</head>
+
+<body>
+  <div>electron</div>
+  <iframe src="./h5.html" id="myIframe" frameborder="0"></iframe>
+  <script type="module">
+    import { IPCIframe } from '../dist/IPCIframe.js';
+    const iframeEle = document.getElementById('myIframe');
+    const ipc = new IPCIframe(iframeEle.contentWindow);
+    setTimeout(async () => {
+      const result = await ipc.invoke('init');
+      console.log(result, 'result')
+    }, 1000)
+
+  </script>
+</body>
+
+</html>
