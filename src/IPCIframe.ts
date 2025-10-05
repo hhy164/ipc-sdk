@@ -1,6 +1,7 @@
 import { IPCType } from "./interface/index.js";
 export class IPCIframe {
   private pendingHandlers: Record<string, { resolve: Function, reject: Function }> = {}
+  private eventHandlers: Record<string, Function[]> = {}
   constructor(private win: Window) {
     this.handleMessage = this.handleMessage.bind(this);
     window.addEventListener('message', this.handleMessage);
@@ -43,8 +44,42 @@ export class IPCIframe {
           this.pendingHandlers[requestId].resolve(result);
         }
         break;
+      case IPCType.EMIT_H5:
+        const { params, eventName } = event.data;
+        const fnArr = this.eventHandlers[eventName];
+        for (const item of fnArr) {
+          item(params);
+        }
+        break;
       default:
         break;
     }
+  }
+
+  // 监听事件
+  on(eventName: string, callback: Function) {
+    if (this.eventHandlers[eventName]) {
+      this.eventHandlers[eventName].push(callback)
+    } else {
+      this.eventHandlers[eventName] = [callback]
+    }
+  }
+
+  // 移除监听事件
+  off(eventName: string, callback?: Function) {
+    if (callback) {
+      this.eventHandlers[eventName] = this.eventHandlers[eventName].filter(item => item !== callback);
+    } else {
+      this.eventHandlers[eventName] = [];
+    }
+  }
+
+  // 抛出事件
+  emit(eventName: string, params: any) {
+    this.win.postMessage({
+      type: IPCType.EMIT_IFRAME,
+      eventName,
+      params
+    }, '*')
   }
 }

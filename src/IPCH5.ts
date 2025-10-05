@@ -1,6 +1,7 @@
 import { IPCType } from "./interface/index.js";
 export class IPCH5 {
   private handlers: Record<string, Function> = {}
+  private eventHandlers: Record<string, Function[]> = {}
   constructor() {
     this.handleMessage = this.handleMessage.bind(this);
     window.addEventListener('message', this.handleMessage)
@@ -37,8 +38,41 @@ export class IPCH5 {
           }, '*')
         }
         break;
+      case IPCType.EMIT_IFRAME:
+        const { params: data, eventName } = event.data;
+        const fnArr = this.eventHandlers[eventName];
+        for (const item of fnArr) {
+          item(data);
+        }
       default:
         break;
+    }
+  }
+
+  // 抛出事件
+  emit(eventName: string, params: any) {
+    window.parent.postMessage({
+      type: IPCType.EMIT_H5,
+      eventName,
+      params
+    }, '*')
+  }
+
+  // 监听消息
+  on(eventName: string, callback: Function) {
+    if (this.eventHandlers[eventName]) {
+      this.eventHandlers[eventName].push(callback)
+    } else {
+      this.eventHandlers[eventName] = [callback]
+    }
+  }
+
+  // 移除监听事件
+  off(eventName: string, callback?: Function) {
+    if (callback) {
+      this.eventHandlers[eventName] = this.eventHandlers[eventName].filter(item => item !== callback);
+    } else {
+      this.eventHandlers[eventName] = [];
     }
   }
 }
