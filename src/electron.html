@@ -14,12 +14,10 @@
     import { IPCIframe } from '../dist/IPCIframe.js';
     const iframeEle = document.getElementById('myIframe');
     const ipc = new IPCIframe(iframeEle.contentWindow);
-    setTimeout(() => {
-      ipc.emit('initData', {
-        age: 20
-      })
+    setTimeout(async () => {
+      const res = await ipc.invoke('init')
+      console.log(res)
     }, 1000)
-
   </script>
 </body>
 

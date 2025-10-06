@@ -12,9 +12,17 @@
   <script type="module">
     import { IPCH5 } from "../dist/IPCH5.js"
     const ipc = new IPCH5();
-    ipc.on('initData', (params) => {
-      console.log(params)
+    ipc.handle('init', () => {
+      return getUserInfo()
     })
+
+    const getUserInfo = () => {
+      return new Promise((resolve, reject) => {
+        resolve({
+          age: 20
+        })
+      })
+    }
   </script>
 </body>
 
