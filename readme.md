@@ -646,10 +646,6 @@ const ipc = new IPCIframe(window); // 这是错误的
 const ipc = new IPCIframe(window.parent); // 这也是错误的
 ```
 
-### 6. 跨域安全（可选优化）
-
-当前版本使用 `postMessage` 的 `'*'` 作为目标源，开发环境很方便，但生产环境建议指定具体域名以提高安全性。
-
 ## 🏗️ 架构说明
 
 ```
