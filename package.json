@@ -1,6 +1,6 @@
 {
   "name": "h5-iframe-ipc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个轻量级的H5与iframe通信SDK，支持双向消息传递和事件监听",
   "main": "dist/index.js",
   "module": "dist/index.js",
