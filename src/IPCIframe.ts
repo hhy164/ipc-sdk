@@ -46,7 +46,7 @@ export class IPCIframe {
         break;
       case IPCType.EMIT_H5:
         const { params, eventName } = event.data;
-        const fnArr = this.eventHandlers[eventName];
+        const fnArr = this.eventHandlers[eventName] || [];
         for (const item of fnArr) {
           item(params);
         }

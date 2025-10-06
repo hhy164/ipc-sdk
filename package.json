@@ -19,16 +19,30 @@
     "h5",
     "iframe",
     "electron",
-    "communication"
+    "react",
+    "vue",
+    "communication",
+    "postMessage",
+    "cross-frame",
+    "message-passing",
+    "typescript",
+    "lightweight",
+    "bidirectional"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hhy164/ipc-sdk.git"
   },
-  "author": "2067684844@qq.com",
+  "author": {
+    "name": "hehongyu",
+    "email": "2067684844@qq.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hhy164/ipc-sdk/issues"
   },
-  "homepage": "https://github.com/hhy164/ipc-sdk#readme"
+  "homepage": "https://github.com/hhy164/ipc-sdk#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
 }

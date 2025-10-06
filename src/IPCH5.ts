@@ -40,10 +40,11 @@ export class IPCH5 {
         break;
       case IPCType.EMIT_IFRAME:
         const { params: data, eventName } = event.data;
-        const fnArr = this.eventHandlers[eventName];
+        const fnArr = this.eventHandlers[eventName] || [];
         for (const item of fnArr) {
           item(data);
         }
+        break;
       default:
         break;
     }
