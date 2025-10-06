@@ -1,4 +1,4 @@
-import { IPCType } from "./interface/index.js";
+import { IPCType } from "./interface/index";
 export class IPCH5 {
   private handlers: Record<string, Function> = {}
   private eventHandlers: Record<string, Function[]> = {}

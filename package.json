@@ -1,17 +1,32 @@
 {
   "name": "ipc-sdk",
   "version": "1.0.0",
-  "description": "```js import IPCH5 from './dist/IPCH5.js'; const ipc = new IPCH5(); // 注册方法供iframe调用 ipc.handle('init',(params)=>{   return {     a:xxx,     b:xxx   } })",
-  "main": "index.js",
+  "description": "一个轻量级的H5与iframe通信SDK，支持双向消息传递和事件监听",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
+  "keywords": [
+    "ipc",
+    "h5",
+    "iframe",
+    "electron",
+    "communication"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hhy164/ipc-sdk.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "2067684844@qq.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hhy164/ipc-sdk/issues"

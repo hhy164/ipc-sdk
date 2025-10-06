@@ -1,4 +1,4 @@
-import { IPCType } from "./interface/index.js";
+import { IPCType } from "./interface/index";
 export class IPCIframe {
   private pendingHandlers: Record<string, { resolve: Function, reject: Function }> = {}
   private eventHandlers: Record<string, Function[]> = {}
