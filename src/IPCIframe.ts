@@ -27,7 +27,7 @@ export class IPCIframe {
         params,
         channel,
         requestId
-      })
+      }, '*')
     })
   }
 
