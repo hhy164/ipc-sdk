@@ -75,7 +75,7 @@ export class IPCIframe {
   }
 
   // 抛出事件
-  emit(eventName: string, params: any) {
+  emit(eventName: string, params?: any) {
     this.win.postMessage({
       type: IPCType.EMIT_IFRAME,
       eventName,

@@ -51,7 +51,7 @@ export class IPCH5 {
   }
 
   // 抛出事件
-  emit(eventName: string, params: any) {
+  emit(eventName: string, params?: any) {
     window.parent.postMessage({
       type: IPCType.EMIT_H5,
       eventName,
